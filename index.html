@@ -3,13 +3,21 @@
     <body>
         <img id="ship" width="0" height="0" src="ship.jpg" alt="Ship">
         <img id="alien" width="0" height="0" src="alien.jpg" alt="Alien">
-        <canvas id="myCanvas" width="2000" height="1000"
-            style="border:1px solid #c3c3c3;">
-        </canvas>
-        
-        <script> window.onload = function(){
             
-            var canvas = document.getElementById(*"myCanvas");
+                <script> //MOUSE PRESS
+                    function press(e) {
+                        if(e.button==0){
+                            bullets[0]=100;
+                        }
+                    }
+                
+                </script>
+            <canvas id="myCanvas" width="1600" height="900"
+                style="border:1px solid #c3c3c3;" onmousedown="press(event);">
+            </canvas>
+        
+        <script> window.onload = function run(){
+            var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
             var ships = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
             var bullets = [-50,-50,-50,-50,-50,-50,-50,-50,-50,-50];
@@ -20,6 +28,8 @@
             //ctx.fillStyle = "#FF0000";
             //ctx.fillRect(0,0,150,75);
             
+            
+            
            for (i = 0; i < ships.length; i++) {
             ctx.drawImage(document.getElementById("alien"),1+(i*51),1,50,50);
            }
@@ -28,9 +38,8 @@
                ctx.fillRect(px,bullets[i],1,1);
            }
            ctx.drawImage(document.getElementById("ship"),px,500,50,50);
-        }
+                             }
             </script>
-        
     </body>
 </html>
 
